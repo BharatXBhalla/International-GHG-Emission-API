@@ -1,7 +1,11 @@
-GET http://localhost:5000/country/1?endYear=2004&startYear=2004&category[]=N2O&category=GHG_Indirect_CO2 HTTP/1.1
+GET http://localhost:8081/country/1?endYear=2010&startYear=1990&category=N2O&category=GHG_Indirect_CO2 HTTP/1.1
 Content-Type: application/json 
 
 
 ###
-GET http://localhost:5000/countries HTTP/1.1
+GET http://localhost:8081/countries HTTP/1.1
+Content-Type: application/json 
+
+###
+POST http://localhost:5000/country/1?endYear=2004&startYear=2004&category=N2O&category=GHG_Indirect_CO2 HTTP/1.1
 Content-Type: application/json 

@@ -1,3 +1,3 @@
 module.exports={
-    dbfilelocation:"../database/ghg.db"
+    dbfilelocation:"./database/ghg.db"
 }
