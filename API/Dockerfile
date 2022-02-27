@@ -11,4 +11,6 @@ COPY . .
 
 EXPOSE 5000
 
+RUN apk --update add redis 
+
 CMD [ "node", "index.js" ]

@@ -17,3 +17,21 @@ process.on('exit', function(){
         console.log('Close the database connection.');
       });
 });
+
+
+
+// Running Redis as Process
+
+const { exec } = require("child_process");
+
+exec("redis-server", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});
