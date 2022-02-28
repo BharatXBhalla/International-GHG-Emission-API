@@ -1,10 +1,12 @@
-GET http://localhost:8081/country/4?startYear=2002&endYear=9999&category=GHG&category=CH4&category=N2O HTTP/1.1
+GET http://localhost:5000/country/9?startYear=1990&endYear=9999&category=GHG&category=CH4&category=N2O HTTP/1.1
 Content-Type: application/json 
+transaction_id: {{$guid}}
 
 
 ###
-GET http://localhost:8081/countries HTTP/1.1
-Content-Type: application/json 
+GET http://localhost:5000/countries HTTP/1.1
+Content-Type: application/json
+transaction_id: {{$guid}}
 
 ###
 GET http://localhost:5000/country/1?endYear=2004&startYear=2004&category=N2O&category=GHG_Indirect_CO2 HTTP/1.1

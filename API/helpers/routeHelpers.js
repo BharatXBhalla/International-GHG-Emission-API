@@ -3,6 +3,13 @@ const Joi = require('joi');
 module.exports = {
   validateRequest: (schema) => {
     return (req, res, next) => {
+
+      if(req.headers.transaction_id==null){
+        next(new Error("No Transaction Id"));
+      }
+
+
+      console.log("::::::::::Start Validating Request for "+req.headers.transaction_id+" :::::::::::::")
       let result
 
       if(schema.querySchema!=undefined){
@@ -42,14 +49,14 @@ module.exports = {
         }
       }
 
+      console.log("::::::::::End Validating Request for "+req.headers.transaction_id+" :::::::::::::")
 
-      if (!req.value) { req.value = {}; }
-      req.value['body'] = result.value;
       next();
     }
   },
   validateAssertions:(schema)=>{
     return (req,res,next)=>{
+      console.log("::::::::::Start Validating Assertions for "+req.headers.transaction_id+" :::::::::::::");
       var result
       schema.assertSchema.forEach(assertions => {
         result=assertions(req)
@@ -57,6 +64,7 @@ module.exports = {
           return res.status(400).json({"Error":result.error.toString()});
         }
       });
+      console.log("::::::::::End Validating Assertions for "+req.headers.transaction_id+" :::::::::::::");
       next();
     }
   }

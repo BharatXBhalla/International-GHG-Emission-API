@@ -11,6 +11,7 @@ var client;
 })();
 
 module.exports=async (req,res,next)=>{
+    console.log("::::::::::Start Set Cached Request for "+req.headers.transaction_id+" :::::::::::::");
 
     cachehash = req.originalUrl;
 
@@ -18,7 +19,9 @@ module.exports=async (req,res,next)=>{
         await client.set(cachehash,JSON.stringify(res.locals.body));
         await client.expire(cachehash, 300);
     }catch(err){
-        console.log(err);
+        console.log("::::::::::Error Set Cached Request for "+req.headers.transaction_id+" ::::::::::::: "+err);
         next()
     }
+
+    console.log("::::::::::End Set Cached Request for "+req.headers.transaction_id+" :::::::::::::");
 }

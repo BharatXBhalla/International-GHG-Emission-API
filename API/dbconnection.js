@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3')
 
 
-const dbfilelocation = require('./configuration/property').dbfilelocation;
+const dbfilelocation = "./database/ghg.db";
 
 var db= new sqlite3.Database(dbfilelocation, (err) => {
     if (err) {

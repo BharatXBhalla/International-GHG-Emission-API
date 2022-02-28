@@ -11,6 +11,7 @@ var client;
 })();
 
 module.exports=async (req,res,next)=>{
+    console.log("::::::::::Start Get Cached Request for "+req.headers.transaction_id+" :::::::::::::");
 
     cachehash = req.originalUrl;
     
@@ -23,7 +24,8 @@ module.exports=async (req,res,next)=>{
         }
         
     }catch(err){
-        console.log(err);
+        console.log("::::::::::Error Get Cached Request for "+req.headers.transaction_id+" ::::::::::::: "+err);
         next()
     }
+    console.log("::::::::::End Get Cached Request for "+req.headers.transaction_id+" :::::::::::::");
 }
