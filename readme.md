@@ -2,6 +2,8 @@
 
 Api is build around International-GHG-Emission Dataset https://www.kaggle.com/abhijittripathy/ghg-emission-analysis/data
 
+Open API Specs : https://app.swaggerhub.com/apis-docs/bharat295/international-ghg_api/1.0.0
+
 
 ## Goal
 Goal is to build api for following endpoints:
